@@ -10,7 +10,7 @@ read input
 
 backup_db(){
     echo "backing up remote database in ~/db_backup"
-    ssh -i new.pem ubuntu@52.64.52.81 'cd db_backup; mysqldump -u username -ppassword db_name > dbname.sql'
+    ssh -i new.pem ubuntu@52.64.52.81 'cd db_backup; mysqldump -u username -ppassword db_name > dbname.sql; git add dbname.sql; git commit -m "Backup on `date`"'
 }
 
 load_db(){
